@@ -592,11 +592,16 @@ input[type="radio"] {
         <a href="#" class="btn">Anchor Tag</a>
         <button class="btn">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn">
-    - name: Hovered/focused state
+    - name: Hovered state
       markup: |
         <a href="#" class="btn hover">Anchor Tag</a>
         <button class="btn hover">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn hover">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn focus">Anchor Tag</a>
+        <button class="btn focus">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn focus">
     - name: Active state
       markup: |
         <a href="#" class="btn active">Anchor Tag</a>
@@ -639,9 +644,14 @@ input[type="radio"] {
   color: #ffffff;
 }
 .btn:hover,
-.btn:focus,
 .btn.hover {
   background-color: #328ed8;
+}
+.btn:focus,
+.btn.focus {
+  background-color: #328ed8;
+  outline: 1px dotted #0072ce;
+  outline-offset: 1px;
 }
 .btn:active,
 .btn.active {
@@ -675,11 +685,16 @@ input.btn::-moz-focus-inner {
         <a href="#" class="btn btn__secondary">Anchor Tag</a>
         <button class="btn btn__secondary">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__secondary">
-    - name: Hovered/focused state
+    - name: Hovered state
       markup: |
         <a href="#" class="btn btn__secondary hover">Anchor Tag</a>
         <button class="btn btn__secondary hover">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__secondary hover">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn btn__secondary focus">Anchor Tag</a>
+        <button class="btn btn__secondary focus">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn__secondary focus">
     - name: Active state
       markup: |
         <a href="#" class="btn btn__secondary active">Anchor Tag</a>
@@ -695,9 +710,13 @@ input.btn::-moz-focus-inner {
   color: #ffffff;
 }
 .btn__secondary:hover,
-.btn__secondary:focus,
 .btn__secondary.hover {
   background-color: #919395;
+}
+.btn__secondary:focus,
+.btn__secondary.focus {
+  background-color: #919395;
+  outline-color: #75787b;
 }
 .btn__secondary:active,
 .btn__secondary.active {
@@ -715,11 +734,16 @@ input.btn::-moz-focus-inner {
         <a href="#" class="btn btn__warning">Anchor Tag</a>
         <button class="btn btn__warning">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__warning">
-    - name: Hovered/focused state
+    - name: Hovered state
       markup: |
         <a href="#" class="btn btn__warning hover">Anchor Tag</a>
         <button class="btn btn__warning hover">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__warning hover">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn btn__warning focus">Anchor Tag</a>
+        <button class="btn btn__warning focus">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn__warning focus">
     - name: Active state
       markup: |
         <a href="#" class="btn btn__warning active">Anchor Tag</a>
@@ -735,9 +759,13 @@ input.btn::-moz-focus-inner {
   color: #ffffff;
 }
 .btn__warning:hover,
-.btn__warning:focus,
 .btn__warning.hover {
   background-color: #da6750;
+}
+.btn__warning:focus,
+.btn__warning.focus {
+  background-color: #da6750;
+  outline-color: #d12124;
 }
 .btn__warning:active,
 .btn__warning.active {
@@ -755,6 +783,16 @@ input.btn::-moz-focus-inner {
         <a href="#" class="btn btn__disabled">Anchor Tag</a>
         <button class="btn btn__disabled">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__disabled">
+    - name: Default/hovered/active state
+      markup: |
+        <a href="#" class="btn btn__disabled">Anchor Tag</a>
+        <button class="btn btn__disabled">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn__disabled">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn btn__disabled focus">Anchor Tag</a>
+        <button class="btn btn__disabled focus">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn__disabled focus">
     tags:
     - cf-buttons
 */
@@ -764,12 +802,17 @@ input.btn::-moz-focus-inner {
 .btn__disabled:hover,
 .btn__disabled.hover,
 .btn__disabled:focus,
+.btn__disabled.focus,
 .btn__disabled:active,
 .btn__disabled.active {
   background-color: #e3e4e5;
   color: #75787b;
   cursor: default;
   cursor: not-allowed;
+}
+.btn__disabled:focus,
+.btn__disabled.focus {
+  outline-color: #75787b;
 }
 /* topdoc
     name: Super button
@@ -780,11 +823,16 @@ input.btn::-moz-focus-inner {
         <a href="#" class="btn btn__super">Anchor Tag</a>
         <button class="btn btn__super">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__super">
-    - name: Hovered/focused state
+    - name: Hovered state
       markup: |
         <a href="#" class="btn btn__super hover">Anchor Tag</a>
         <button class="btn btn__super hover">Button Tag</button>
         <input type="submit" value="Input Tag" class="btn btn__super hover">
+    - name: Focused state
+      markup: |
+        <a href="#" class="btn btn__super focus">Anchor Tag</a>
+        <button class="btn btn__super focus">Button Tag</button>
+        <input type="submit" value="Input Tag" class="btn btn__super focus">
     - name: Active state
       markup: |
         <a href="#" class="btn btn__super active">Anchor Tag</a>
@@ -1556,6 +1604,10 @@ table,
 figure {
   margin-top: 0;
   margin-bottom: 1.25em;
+}
+figure {
+  margin-left: 0;
+  margin-right: 0;
 }
 /* topdoc
   name: Default link
@@ -2437,6 +2489,35 @@ select[multiple].focus {
    Utilities
    ========================================================================== */
 /* topdoc
+  name: JS-only
+  family: cf-core
+  patterns:
+    - name: Setup
+      codenotes:
+        - <html class="no-js">
+        - |
+            <script>
+                // Confirm availability of JS and remove no-js class from html
+                var docElement = document.documentElement;
+                docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+            </script>
+      notes:
+        - "First add the .no-js class to the HTML element."
+        - "Then add the script to your HEAD which removes the .no-js class when
+           JS is available."
+    - name: Utility class
+      codenotes:
+        - .u-js-only;
+      notes:
+        - "Hide stuff when JavaScript isn't available. Depends on having a small
+           script in the HEAD of your HTML document that removes a .no-js class."
+  tags:
+    - cf-core
+*/
+.no-js .u-js-only {
+  display: none !important;
+}
+/* topdoc
   name: Clearfix
   family: cf-core
   patterns:
@@ -2444,7 +2525,7 @@ select[multiple].focus {
       markup: |
         <div class="u-clearfix">
             <div style="float:left; width:100%; height:60px; background:black;"></div>
-        </h1>
+        </div>
       codenotes:
         - .u-clearfix;
       notes:
@@ -2530,6 +2611,40 @@ select[multiple].focus {
 */
 .u-right {
   float: right;
+}
+/* topdoc
+  name: Break word
+  family: cf-core
+  patterns:
+    - name: Utility class
+      markup: |
+        <div style="width: 100px;">
+            This link should break:
+            <br>
+            <a class="u-break-word" href="#">
+                something@something.com
+            </a>
+            <br>
+            <br>
+            This link should not:
+            <br>
+            <a href="#">
+                something@something.com
+            </a>
+        </div>
+      codenotes:
+        - .u-break-word
+      notes:
+        - "Use this on elements where you need the words to break when confined
+           to small containers."
+        - "This only works in IE8 when the element with the .u-break-word class
+           has layout. See <http://stackoverflow.com/questions/3997223/word-wrapbreak-word-not-working-in-ie8>
+           for more information."
+  tags:
+    - cf-core
+*/
+.u-break-word {
+  word-break: break-all;
 }
 /* topdoc
   name: Align with button
@@ -2675,12 +2790,12 @@ select[multiple].focus {
     - codenotes:
         - .u-link__colors(@c, @v, @h, @f, @a, @bc, @bv, @bh, @bf, @ba);
       notes:
-        - "Allows you to color text and the bottom border separately."
+        - "Allows you to color text and the borders separately."
         - "The first five colors in 'love/hate' mnemonic order will color text
           for the :link, :visited, :hover, :focus, and :active states
           respectively. The last five colors in 'love/hate' mnemonic order will
-          color the bottom border for the :link, :visited, :hover, :focus, and
-          :active states respectively."
+          color the borders for the :link, :visited, :hover, :focus, and :active
+          states respectively."
         - "Even though this mixin is basically the same as
           .u-link__colors-base(@c, @v, @h, @f, @a, @bc, @bv, @bh, @bf, @ba); we
           encourage you to use .u-link__colors(@c, @v, @h, @f, @a, @bc, @bv, @bh, @bf, @ba)
@@ -3104,6 +3219,10 @@ table,
 figure {
   margin-top: 0;
   margin-bottom: 1.25em;
+}
+figure {
+  margin-left: 0;
+  margin-right: 0;
 }
 /* topdoc
   name: Default link
@@ -3953,6 +4072,35 @@ select[multiple].focus {
    Utilities
    ========================================================================== */
 /* topdoc
+  name: JS-only
+  family: cf-core
+  patterns:
+    - name: Setup
+      codenotes:
+        - <html class="no-js">
+        - |
+            <script>
+                // Confirm availability of JS and remove no-js class from html
+                var docElement = document.documentElement;
+                docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+            </script>
+      notes:
+        - "First add the .no-js class to the HTML element."
+        - "Then add the script to your HEAD which removes the .no-js class when
+           JS is available."
+    - name: Utility class
+      codenotes:
+        - .u-js-only;
+      notes:
+        - "Hide stuff when JavaScript isn't available. Depends on having a small
+           script in the HEAD of your HTML document that removes a .no-js class."
+  tags:
+    - cf-core
+*/
+.no-js .u-js-only {
+  display: none !important;
+}
+/* topdoc
   name: Clearfix
   family: cf-core
   patterns:
@@ -3960,7 +4108,7 @@ select[multiple].focus {
       markup: |
         <div class="u-clearfix">
             <div style="float:left; width:100%; height:60px; background:black;"></div>
-        </h1>
+        </div>
       codenotes:
         - .u-clearfix;
       notes:
@@ -4046,6 +4194,40 @@ select[multiple].focus {
 */
 .u-right {
   float: right;
+}
+/* topdoc
+  name: Break word
+  family: cf-core
+  patterns:
+    - name: Utility class
+      markup: |
+        <div style="width: 100px;">
+            This link should break:
+            <br>
+            <a class="u-break-word" href="#">
+                something@something.com
+            </a>
+            <br>
+            <br>
+            This link should not:
+            <br>
+            <a href="#">
+                something@something.com
+            </a>
+        </div>
+      codenotes:
+        - .u-break-word
+      notes:
+        - "Use this on elements where you need the words to break when confined
+           to small containers."
+        - "This only works in IE8 when the element with the .u-break-word class
+           has layout. See <http://stackoverflow.com/questions/3997223/word-wrapbreak-word-not-working-in-ie8>
+           for more information."
+  tags:
+    - cf-core
+*/
+.u-break-word {
+  word-break: break-all;
 }
 /* topdoc
   name: Align with button
@@ -4191,12 +4373,12 @@ select[multiple].focus {
     - codenotes:
         - .u-link__colors(@c, @v, @h, @f, @a, @bc, @bv, @bh, @bf, @ba);
       notes:
-        - "Allows you to color text and the bottom border separately."
+        - "Allows you to color text and the borders separately."
         - "The first five colors in 'love/hate' mnemonic order will color text
           for the :link, :visited, :hover, :focus, and :active states
           respectively. The last five colors in 'love/hate' mnemonic order will
-          color the bottom border for the :link, :visited, :hover, :focus, and
-          :active states respectively."
+          color the borders for the :link, :visited, :hover, :focus, and :active
+          states respectively."
         - "Even though this mixin is basically the same as
           .u-link__colors-base(@c, @v, @h, @f, @a, @bc, @bv, @bh, @bf, @ba); we
           encourage you to use .u-link__colors(@c, @v, @h, @f, @a, @bc, @bv, @bh, @bf, @ba)
@@ -4622,6 +4804,259 @@ button.expandable_header {
   margin: 0 1em 1.375em;
 }
 /* topdoc
+    name: Expandable groups
+    family: cf-expandables
+    patterns:
+    - name: Standard expandable group
+      markup: |
+        <div class="expandable-group">
+            <div class="expandable-group_header">Expandable group header</div>
+            <div class="expandable expandable__padded">
+                <button class="expandable_header expandable_target">
+                    <span class="expandable_header-left expandable_label">
+                        Expandable Header 1
+                    </span>
+                    <span class="expandable_header-right expandable_link">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="expandable_content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Neque ipsa voluptatibus soluta nobis unde quisquam
+                        temporibus magnam debitis quidem. Ducimus ratione
+                        corporis nesciunt earum vel est quaerat blanditiis
+                        dolore ipsa?
+                    </p>
+                </div>
+            </div>
+            <div class="expandable expandable__padded">
+                <button class="expandable_header expandable_target">
+                    <span class="expandable_header-left expandable_label">
+                        Expandable Header 2
+                    </span>
+                    <span class="expandable_header-right expandable_link">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="expandable_content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Neque ipsa voluptatibus soluta nobis unde quisquam
+                        temporibus magnam debitis quidem. Ducimus ratione
+                        corporis nesciunt earum vel est quaerat blanditiis
+                        dolore ipsa?
+                    </p>
+                </div>
+            </div>
+            <div class="expandable expandable__padded">
+                <button class="expandable_header expandable_target">
+                    <span class="expandable_header-left expandable_label">
+                        Expandable Header 3
+                    </span>
+                    <span class="expandable_header-right expandable_link">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="expandable_content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Neque ipsa voluptatibus soluta nobis unde quisquam
+                        temporibus magnam debitis quidem. Ducimus ratione
+                        corporis nesciunt earum vel est quaerat blanditiis
+                        dolore ipsa?
+                    </p>
+                </div>
+            </div>
+        </div>
+      codenotes:
+        - |
+          Pattern structure
+          -----------------
+          .expandable-group
+            .expandable-group_header
+            .expandable.expandable__padded
+              [...]
+            .expandable.expandable__padded
+              [...]
+            .expandable.expandable__padded
+              [...]
+    - name: Accordion-style group
+      markup: |
+        <div class="expandable-group" data-accordion="true">
+            <div class="expandable-group_header">Expandable group header</div>
+            <div class="expandable expandable__padded">
+                <button class="expandable_header expandable_target">
+                    <span class="expandable_header-left expandable_label">
+                        Expandable Header 1
+                    </span>
+                    <span class="expandable_header-right expandable_link">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="expandable_content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Neque ipsa voluptatibus soluta nobis unde quisquam
+                        temporibus magnam debitis quidem. Ducimus ratione
+                        corporis nesciunt earum vel est quaerat blanditiis
+                        dolore ipsa?
+                    </p>
+                </div>
+            </div>
+            <div class="expandable expandable__padded">
+                <button class="expandable_header expandable_target">
+                    <span class="expandable_header-left expandable_label">
+                        Expandable Header 2
+                    </span>
+                    <span class="expandable_header-right expandable_link">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="expandable_content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Neque ipsa voluptatibus soluta nobis unde quisquam
+                        temporibus magnam debitis quidem. Ducimus ratione
+                        corporis nesciunt earum vel est quaerat blanditiis
+                        dolore ipsa?
+                    </p>
+                </div>
+            </div>
+            <div class="expandable expandable__padded">
+                <button class="expandable_header expandable_target">
+                    <span class="expandable_header-left expandable_label">
+                        Expandable Header 3
+                    </span>
+                    <span class="expandable_header-right expandable_link">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </button>
+                <div class="expandable_content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Neque ipsa voluptatibus soluta nobis unde quisquam
+                        temporibus magnam debitis quidem. Ducimus ratione
+                        corporis nesciunt earum vel est quaerat blanditiis
+                        dolore ipsa?
+                    </p>
+                </div>
+            </div>
+        </div>
+      codenotes:
+        - |
+          <div class="expandable-group" data-accordion="true">
+      notes:
+        - "Accordions can only show one open expandable at a time."
+        - "Add the data-accordion=\"true\" attribute to the expandable group to
+           activate the accordion mode."
+    tags:
+    - cf-expandables
+*/
+.expandable-group {
+  margin-bottom: 1.875em;
+}
+.expandable-group_header {
+  padding: 0.35714286em 1.14285714em;
+  border-bottom: 1px solid #919395;
+  background: #f1f2f2;
+  color: #75787b;
+  font-family: "AvenirNextLTW01-Demi", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0.35714286em;
+  font-size: 0.875em;
+  line-height: 1.57142857;
+  margin-bottom: 0;
+}
+.lt-ie9 .expandable-group_header {
+  font-weight: normal !important;
+}
+.lt-ie9 .expandable-group_header {
+  font-weight: normal !important;
+}
+.lt-ie9 .expandable-group_header {
+  font-weight: normal !important;
+}
+.lt-ie9 .expandable-group_header {
+  font-weight: normal !important;
+}
+.expandable-group .expandable {
+  border-bottom: 1px solid #919395;
+  margin-bottom: 0;
+  background: #ffffff;
+}
+.expandable-group .expandable_label {
+  margin-top: 0;
+  margin-bottom: 0.27777778em;
+  font-size: 1.125em;
+  font-family: "AvenirNextLTW01-Medium", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.22222222;
+  margin-bottom: 0;
+}
+.lt-ie9 .expandable-group .expandable_label {
+  font-weight: normal !important;
+}
+.lt-ie9 .expandable-group .expandable_label {
+  font-weight: normal !important;
+}
+.lt-ie9 .expandable-group .expandable_label {
+  font-weight: normal !important;
+}
+.lt-ie9 .expandable-group .expandable_label {
+  font-weight: normal !important;
+}
+.expandable-group .expandable_content {
+  margin-bottom: 0;
+}
+/* topdoc
   name: EOF
   eof: true
 */
@@ -4839,8 +5274,8 @@ textarea.success {
 .form-group + .form-group {
   margin-top: 1.875em;
 }
-.form-group_item {
-  margin-bottom: 0.9375em;
+.form-group_item + .form-group_item {
+  margin-top: 0.9375em;
 }
 /* topdoc
   name: EOF
@@ -6581,6 +7016,175 @@ textarea.success {
 }
 .lt-ie8 .cf-icon-date-round {
   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '\e719');
+}
+/* topdoc
+  name: EOF
+  eof: true
+*/
+/* ==========================================================================
+   Capital Framework
+   Tab Styling
+   ========================================================================== */
+/* topdoc
+    name: Tabs
+    family: cf-tabs
+    patterns:
+    - name: Default tabs pattern
+      markup: |
+        <div class="tabs">
+            <ul class="tabs_list">
+                <li class="tabs_list-item">
+                    <button class="tabs_tab" data-panel="panel-1">First Tab</button>
+                </li>
+                <li class="tabs_list-item">
+                    <button class="tabs_tab" data-panel="panel-2">Second Tab</button>
+                </li>
+                <li class="tabs_list-item">
+                    <button class="tabs_tab" data-panel="panel-3">Third Tab</button>
+                </li>
+            </ul>
+            <div class="tabs_panel" id="panel-1">
+                <h1>First tab content</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                   Itaque quas obcaecati beatae sit aliquid saepe molestias ad
+                   molestiae illum eos vero mollitia temporibus aperiam culpa
+                   asperiores officiis minus eius animi?</p>
+            </div>
+            <div class="tabs_panel" id="panel-2">
+                <h1>Second tab content</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                   Itaque quas obcaecati beatae sit aliquid saepe molestias ad
+                   molestiae illum eos vero mollitia temporibus aperiam culpa
+                   asperiores officiis minus eius animi?</p>
+            </div>
+            <div class="tabs_panel" id="panel-3">
+                <h1>Third tab content</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                   Itaque quas obcaecati beatae sit aliquid saepe molestias ad
+                   molestiae illum eos vero mollitia temporibus aperiam culpa
+                   asperiores officiis minus eius animi?</p>
+            </div>
+        </div>
+    tags:
+    - cf-tabs
+*/
+.tabs {
+  margin: 0 0 1em;
+}
+.tabs_list {
+  margin: 0;
+  padding: 0;
+  border-bottom: 4px solid #2cb34a;
+  list-style-type: none;
+}
+.tabs_list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.lt-ie8 .tabs_list {
+  zoom: 1;
+}
+.tabs_list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.lt-ie8 .tabs_list {
+  zoom: 1;
+}
+.tabs_list-item {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.tabs_tab {
+  display: block;
+  margin-right: .5em;
+  padding: 0.5em 1.875em;
+  border: none;
+  background-color: #e3e4e5;
+  color: #101820;
+  font-family: "AvenirNextLTW01-Regular", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+.tabs_tab em,
+.tabs_tab i {
+  font-family: "AvenirNextLTW01-Italic", Arial, sans-serif;
+  font-style: italic;
+  font-weight: normal;
+}
+.lt-ie9 .tabs_tab em,
+.lt-ie9 .tabs_tab i {
+  font-style: normal !important;
+}
+.lt-ie9 .tabs_tab em,
+.lt-ie9 .tabs_tab i {
+  font-style: normal !important;
+}
+.tabs_tab strong,
+.tabs_tab b {
+  font-family: "AvenirNextLTW01-Demi", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+.lt-ie9 .tabs_tab strong,
+.lt-ie9 .tabs_tab b {
+  font-weight: normal !important;
+}
+.lt-ie9 .tabs_tab strong,
+.lt-ie9 .tabs_tab b {
+  font-weight: normal !important;
+}
+.tabs_tab em,
+.tabs_tab i {
+  font-family: "AvenirNextLTW01-Italic", Arial, sans-serif;
+  font-style: italic;
+  font-weight: normal;
+}
+.lt-ie9 .tabs_tab em,
+.lt-ie9 .tabs_tab i {
+  font-style: normal !important;
+}
+.lt-ie9 .tabs_tab em,
+.lt-ie9 .tabs_tab i {
+  font-style: normal !important;
+}
+.tabs_tab strong,
+.tabs_tab b {
+  font-family: "AvenirNextLTW01-Demi", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+.lt-ie9 .tabs_tab strong,
+.lt-ie9 .tabs_tab b {
+  font-weight: normal !important;
+}
+.lt-ie9 .tabs_tab strong,
+.lt-ie9 .tabs_tab b {
+  font-weight: normal !important;
+}
+.tabs_tab:hover,
+.tabs_tab:focus {
+  border: none;
+  background-color: #addc91;
+}
+.tabs_tab:focus {
+  outline: 1px dotted #2cb34a;
+  outline-offset: 1px;
+}
+.tabs_tab.is-active {
+  background-color: #2cb34a;
+  color: #ffffff;
+}
+.tabs_panel {
+  padding-top: 0.9375em;
+}
+.tabs_panel:focus {
+  outline: 1px dotted #2cb34a;
+  outline-offset: 1px;
 }
 /* topdoc
   name: EOF
